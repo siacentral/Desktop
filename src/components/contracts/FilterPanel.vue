@@ -181,11 +181,12 @@ export default {
 				break;
 			case 'week': {
 				const curr = start.getDay(),
-					diff = start.getDate() - curr + (curr === 0 ? -6 : 1);
+					diffB = start.getDate() - curr + (curr === 0 ? -6 : 1),
+					diffE = start.getDate() + 6 - (curr === 0 ? 7 : curr);
 
-				start.setDate(diff);
+				start.setDate(diffB);
 				start.setHours(0, 0, 0, 0);
-				end.setDate(start.getDate() + 7);
+				end.setDate(diffE);
 				end.setHours(23, 59, 59, 999);
 
 				break;
